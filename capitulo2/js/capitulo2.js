@@ -3,6 +3,7 @@ $(document).ready(function(){
     ejemplo2_2();
     ejemplo2_3();
     ejemplo2_4();
+    ejemplo2_5();
 });
 
 
@@ -68,3 +69,21 @@ function ejemplo2_4(){
 }
 
 
+function ejemplo2_5(){
+	var objeto = {};
+
+	_.extend(objeto, Backbone.Events);
+
+	objeto.on('all', function(event,msg){
+		alert(event + msg);
+	});
+
+	$('#ejemplo5').click(function(){
+		objeto.trigger('alert:5b', ' Pasando datos desde el enlace uno');
+	});
+
+	$('#ejemplo6').click(function(){
+		objeto.trigger('alert:5b', ' Padando datos desde el enlace dos');
+	});
+
+}
