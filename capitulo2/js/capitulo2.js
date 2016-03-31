@@ -1,6 +1,7 @@
 $(document).ready(function(){
     // ejemplo2_1();
     ejemplo2_2();
+    ejemplo2_3();
 });
 
 
@@ -31,7 +32,23 @@ function ejemplo2_2(){
 }
 
 
+function ejemplo2_3(){
+	var objeto1 = {};
+	var objeto2 = {};
 
+	_.extend(objeto1, Backbone.Events);
+	_.extend(objeto2, Backbone.Events);
+
+	$('#ejemplo3').click(function(){
+		objeto1.trigger('alert', 'Pasando eventos');
+	});
+
+	objeto2.listenTo(objeto1, 'alert', function(msg){
+		alert('Revibiendo mensaje del objeto1 ' + msg);
+		this.stopListening(objeto1);
+	});
+
+}
 
 
 
