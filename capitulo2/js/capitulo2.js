@@ -2,6 +2,7 @@ $(document).ready(function(){
     // ejemplo2_1();
     ejemplo2_2();
     ejemplo2_3();
+    ejemplo2_4();
 });
 
 
@@ -50,6 +51,20 @@ function ejemplo2_3(){
 
 }
 
+function ejemplo2_4(){
+	var objeto1 = {};
 
+	_.extend(objeto1, Backbone.Events);
+
+
+	objeto1.once('alert', function(msg){
+		alert('Pasando eventos ' + msg);
+	});
+
+	$('#ejemplo4').click(function(){
+		objeto1.trigger('alert', 'ejecutando evento una sola ves');
+	});
+
+}
 
 
