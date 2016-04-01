@@ -1,8 +1,11 @@
 var Panel = Backbone.Model.extend(
 	{
-		propInstancia: 'instancia Generica'
-	},
-	{
-		propEstatica: 'valor estatico'
+		defaults: {
+			txt: "Aun no se ha definido ningun texto",
+			rotulo: "sin nombre"
+		},
+		initialize: function(attr) {
+			window.trace('el txt es ' + attr.txt);
+		}
 	}
 );
