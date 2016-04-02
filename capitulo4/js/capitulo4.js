@@ -46,6 +46,12 @@ $(document).ready(function(){
       paneles.reset();
     });
 
+    $("#set_button").click(function(){
+        var _id = $(".panel_seleccionado").data("id_panel");
+        var item = paneles.get(_id);
+        item.set("rotulo", $("#rot_set").val());
+    });
+
 
 
 });
