@@ -1,4 +1,5 @@
  var paneles;
+ var num_paneles;
 
 $(document).ready(function(){
 
@@ -22,12 +23,30 @@ $(document).ready(function(){
 
     trace(JSON.stringify(paneles.toJSON())); 
 
+    num_paneles = paneles.length + 1;
+
     $('#create_button').click(function(){      
-        var panel = new Panel({txt:"Este es el panel 4", rotulo:"Panel 4", id:"4"});
-        paneles.add(panel);
-        paneles.add({txt:"Este es el panel 5", rotulo:"Panel 5", id:"5"})
+        // var panel = new Panel({txt:"Este es el panel 4", rotulo:"Panel 4", id:"4"});
+        // paneles.add(panel);
+        paneles.add({txt:"Este es el panel " + num_paneles, rotulo:"Panel " + num_paneles, id: num_paneles})
+        num_paneles ++;
     });
       
+
+    $("#delete_button").click(function(){
+       paneles.remove(paneles.at(0));
+    });
+
+
+    $("#delete_button_ID").click(function(){
+       paneles.remove(paneles.get($("#rot_del").val()));
+    });
+
+
+
+});
+
+
     function onChangePanels(model, collection){ 
         $("#listado").html("<ul></ul>");
         paneles.each(pintaPanel);
@@ -46,12 +65,6 @@ $(document).ready(function(){
         });        
         $("#listado ul").append($div);
     }
-
-
-
-});
-
-
 
     
     
