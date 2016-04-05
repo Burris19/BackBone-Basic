@@ -81,11 +81,22 @@ $(document).ready(function(){
 });
 
 
-    function onChangePanels(model, collection){ 
-        $("#listado").html("<ul></ul>");
-        paneles.each(pintaPanel);
-    };
+    // function onChangePanels(model, collection){ 
+    //     $("#listado").html("<ul></ul>");
+    //     // paneles.each(pintaPanel);
+    //     var botonView = new BotonView({
+    //       el: $("#listado ul"),
+    //       collection: paneles
+    //     });
+    // };
+
+function onChangePanels(model, collection){
+    $("#listado").html("<ul></ul>");
+    //paneles.each(pintaPanel);
+    var botonView = new BotonView({el:$("#listado ul"), collection:paneles});
+}
     
+    /*
     function pintaPanel(data){      
         var $div = $("<li>", {id: "ref_panel_"+data.cid});
         $div.html(data.get("rotulo"));
@@ -103,7 +114,7 @@ $(document).ready(function(){
            
         });        
         $("#listado ul").append($div);
-    }
+    }*/
 
     
     
