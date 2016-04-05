@@ -62,3 +62,21 @@ ul li{
     border-width: 1px;
     overflow: auto;
 }
+
+#panel{
+   width: 150px;
+   height: 150px;
+   background-color: #ddf5f1;
+   padding: 20px;
+    border-radius: 14px;
+    margin: 25px;
+}
+
+#panel_rotulo{
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#panel_texto{
+    
+}

@@ -96,6 +96,11 @@ $(document).ready(function(){
               $.seleccionado.toggleClass("panel_seleccionado");
            }
            $.seleccionado = $(this);
+
+           var panelView = new PanelView({
+              el: $('#contenedor'), model:data
+           });
+           
         });        
         $("#listado ul").append($div);
     }
@@ -116,3 +121,4 @@ $(document).ready(function(){
 
 
 
+ 
