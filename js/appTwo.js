@@ -10,13 +10,13 @@ $(function(){
 		// window.trace(panel1.propInstancia + ' ' + Panel.propEstatica);
 		// window.trace(panel2.propInstancia + ' ' + Panel.propEstatica);
 
-		var panel1 = new Panel();
+		// var panel1 = new Panel();
 		var panel2 = new Panel({
 			txt: "Este es el nuevo panel",
 			rotulo: "Mi panel"
 		});
 
-		window.trace(JSON.stringify(panel1.toJSON()));
+		window.trace(JSON.stringify(panel2.toJSON()));
 		// console.log(panel1);
 		// console.log(panel2);
 
