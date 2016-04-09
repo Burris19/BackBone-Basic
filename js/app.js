@@ -3,6 +3,7 @@ $(document).ready(function(){
     ejemplo2_2();
     ejemplo2_3();
     ejemplo2_4();
+    ejemplo2_5();
 });
 
 
@@ -62,4 +63,33 @@ function ejemplo2_4(){
 	$("#ejemplo4").click(function(){
 		objeto.trigger("alert","Pasando datos de evento");
 	});
+}
+
+function ejemplo2_5(){
+	 var objeto = {};
+
+	 _.extend(objeto, Backbone.Events);
+
+
+	 // objeto.on("alert:obj1", function(msg){
+	 // 	alert("LLega un alert:obj1 " + msg);
+	 // });
+
+	 // objeto.on("alert:obj2", function(msg){
+	 // 	alert("LLega un alert:obj2 " + msg);
+	 // });
+
+	 objeto.on("all", function(eventName, msg){
+	 	alert(eventName + ' : ' + msg);
+	 })
+
+	 $("#ejemplo5a").click(function(){
+	 	objeto.trigger("alert:obj1", "Pasando datos de evento desde el primer enlace");
+	 })
+
+	 $("#ejemplo5b").click(function(){
+	 	objeto.trigger("alert:obj2", "Pasando datos de evento desde el segundo enlace");
+	 })
+
+
 }
