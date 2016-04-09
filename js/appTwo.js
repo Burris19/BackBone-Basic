@@ -16,8 +16,9 @@ $(function(){
 			rotulo: "Mi panel"
 		});
 
-		console.log(panel1);
-		console.log(panel2);
+		window.trace(JSON.stringify(panel1.toJSON()));
+		// console.log(panel1);
+		// console.log(panel2);
 
 	});
 });

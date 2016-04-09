@@ -1,6 +1,6 @@
 var Panel = Backbone.Model.extend(
 	{
-		default: {
+		defaults: {
 			txt: "Aun no se ha defino texto",
 			rotulo:"Sin nombre"
 		}
