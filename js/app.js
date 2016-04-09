@@ -2,6 +2,7 @@ $(document).ready(function(){
     ejemplo2_1();
     ejemplo2_2();
     ejemplo2_3();
+    ejemplo2_4();
 });
 
 
@@ -46,5 +47,19 @@ function ejemplo2_3(){
 	objeto2.listenTo(objeto1, "alert", function(msg){
 		alert("Recibiendo evento desde el objeto2 " + msg);
 		this.stopListening(objeto1); //dejar de recibir eventos del objeto1
+	});
+}
+
+
+function ejemplo2_4(){
+	var objeto = {};
+	_.extend(objeto, Backbone.Events);
+
+	objeto.once("alert", function(msg){
+		alert("Recibo solo una vez: " + msg);
+	})
+
+	$("#ejemplo4").click(function(){
+		objeto.trigger("alert","Pasando datos de evento");
 	});
 }
