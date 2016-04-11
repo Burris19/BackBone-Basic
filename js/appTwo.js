@@ -16,8 +16,11 @@ $(function(){
 			rotulo: "Mi panel"
 		});
 
-		window.trace(panel.get("rotulo"));
-		window.trace(panel.toString());
+		// window.trace(panel.get("rotulo"));
+		// window.trace(panel.toString());
+		panel.set("rotulo","modificacion del rotulo");
+		panel.set("isActive", "sdf");
+		panel.isValid();
 		//window.trace(JSON.stringify(panel2.toJSON()));
 		// console.log(panel1);
 		// console.log(panel2);
