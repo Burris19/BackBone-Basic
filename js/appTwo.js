@@ -48,26 +48,40 @@ $(function(){
 		{txt: "Este es el panel3", rotulo: "Panel1", id:"3"}
 	]);
 
-	trace(JSON.stringify(paneles.toJSON()))
+	onChangePanels(null, null);
 
+	paneles.on({'add': onChangePanels, 'remove': onChangePanels});
 
+	trace(JSON.stringify(paneles.toJSON()));
+
+	$('#create_button').click(function(){
+		var item = {
+			txt: "Este es el panel4", rotulo: "Panel4", id:"4"
+		};
+		paneles.add(item);
+	});
 });
 
-function pintaPanel(data){
-	var $div = $("<li>", {id: "ref_panel_"+data.cid});
-
-	$div.html(data.get("rotulo"));
-	$div.data("id_panel", data.cid);
-	$div.click(function(){
-		$(this).toggleClass("panel_seleccionado");
-		if($.seleccionado != undefined && $.seleccionado.data("id_panel") != $(this).data("id_panel")){
-			$.seleccionado.toggleClass("panel_seleccionado");
-		}
-		$.seleccionado = $(this);
-	});
-	$("#listado ul").append($div);
+function onChangePanels(model, collection){
+    $("#listado").html("<ul></ul>");
+    paneles.each(pintaPanel);
 }
 
+
+    function pintaPanel(data){
+        var $div = $("<li>", {id: "ref_panel_"+data.cid});
+        $div.html(data.get("rotulo") + " " + data.cid);
+        $div.data("id_panel", data.cid);
+        $div.click(function(){
+          $(".panel_seleccionado").toggleClass("panel_seleccionado");
+           $(this).toggleClass("panel_seleccionado");
+           
+           $.seleccionado = $(this);
+        });
+        $("#listado ul").append($div);
+
+    }
+    
 
 
 //Funcion que escribe un mensaje en la consola

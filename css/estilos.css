@@ -2,8 +2,24 @@ body{
     padding: 15px;
 }
 
-li{
+ul{
+    padding: 10px;
+    margin: 0px;
+}
+ul li{
     cursor: pointer;
+    list-style-type: none;
+    padding: 3px;
+    background-color: #92bfb5;
+    margin: 3px;
+    border-radius: 2px;
+}
+
+.panel_seleccionado{
+    background-color: #7eebd2;
+    border-color: #689d8c;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .tested{
@@ -20,11 +36,12 @@ li{
 
 #dos_cols{
     width: 100%;
-    height: 350px;
+    height: 260px;
     margin-bottom: 20px;
 }
 
 #listado{
+    padding: 0px;
     width: 20%;
     height: 100%;
     float: left;
