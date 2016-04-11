@@ -18,9 +18,16 @@ $(function(){
 
 		// window.trace(panel.get("rotulo"));
 		// window.trace(panel.toString());
-		panel.set("rotulo","modificacion del rotulo");
-		panel.set("isActive", "sdf");
-		panel.isValid();
+		// panel.set("rotulo","modificacion del rotulo");
+		// panel.set("isActive", "sdf");
+		// panel.isValid();
+
+		var subpanel = new SubPanel({
+			txt: "Este es el nuevo panel",
+			rotulo: "Mi panel"
+		});
+		
+		trace(subpanel.toString());
 		//window.trace(JSON.stringify(panel2.toJSON()));
 		// console.log(panel1);
 		// console.log(panel2);
