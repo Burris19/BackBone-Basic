@@ -11,7 +11,8 @@ var Panel = Backbone.Model.extend(
 			// this.on("change:rotulo", this.onChnageRotulo, this);
 			// this.on("invalid", this.onInvalid, this);
 			this.on("change:txt", this.onChangeTxt, this);
-			window.trace("Creando un nuevo panel con texto:  " + this.get("txt"));
+			this.on("change:rotulo", onChangePanels, null);
+			trace("Creando un nuevo panel con texto:  " + this.get("txt"));
 			// this.set("txt", this.prefijo + attr.txt);
 		},
 		promptTexto: function(){

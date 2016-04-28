@@ -1,4 +1,5 @@
 var paneles;
+var num_paneles;
 
 $(function(){
 	// $("#create_button").click(function(){
@@ -50,39 +51,59 @@ $(function(){
 
 	onChangePanels(null, null);
 
-	paneles.on({'add': onChangePanels, 'remove': onChangePanels});
+	paneles.on({'add': onChangePanels, 'remove': onChangePanels, 'reset': onChangePanels, 'sort': onChangePanels});
 
 	trace(JSON.stringify(paneles.toJSON()));
 
+	num_paneles = paneles.length + 1;
+
 	$('#create_button').click(function(){
 		var item = {
-			txt: "Este es el panel4", rotulo: "Panel4", id:"4"
+			txt: "Este es el panel " + num_paneles, rotulo: "Panel " + num_paneles, id:num_paneles
 		};
 		paneles.add(item);
+		num_paneles++;
 	});
+
+
+	$("#delete_button").click(function(){
+		paneles.remove(paneles.at(0))
+	});
+
+	$('#delete_button_ID').click(function(){
+		paneles.remove(paneles.get($('#rot_del').val()));
+	});
+
+	$('#reset_button').click(function(){
+		paneles.reset();
+	});
+
+	$('#set_button').click(function(){
+		var _id = $('.panel_seleccionado').data('id_panel');
+		var item = paneles.get(_id);
+		item.set('rotulo', $('#rot_set').val());		
+	});
+
 });
 
-function onChangePanels(model, collection){
-    $("#listado").html("<ul></ul>");
-    paneles.each(pintaPanel);
-}
+	function onChangePanels(model, collection){
+	    $("#listado").html("<ul></ul>");
+	    paneles.each(pintaPanel);
+	}
 
 
-    function pintaPanel(data){
-        var $div = $("<li>", {id: "ref_panel_"+data.cid});
-        $div.html(data.get("rotulo") + " " + data.cid);
-        $div.data("id_panel", data.cid);
-        $div.click(function(){
-          $(".panel_seleccionado").toggleClass("panel_seleccionado");
-           $(this).toggleClass("panel_seleccionado");
-           
-           $.seleccionado = $(this);
-        });
-        $("#listado ul").append($div);
-
-    }
-    
-
+	function pintaPanel(data){
+	    var $div = $("<li>", {id: "ref_panel_"+data.cid});
+	    $div.html(data.get("rotulo") + " " + data.cid);
+	    $div.data("id_panel", data.cid);
+	    $div.click(function(){
+	      $(".panel_seleccionado").toggleClass("panel_seleccionado");
+	       $(this).toggleClass("panel_seleccionado");
+	       
+	       $.seleccionado = $(this);
+	    });
+	    $("#listado ul").append($div);
+	}
 
 //Funcion que escribe un mensaje en la consola
 
