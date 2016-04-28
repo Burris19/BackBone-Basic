@@ -114,10 +114,11 @@ $(function(){
 
 	function onChangePanels(model, collection){
 	    $("#listado").html("<ul></ul>");
-	    paneles.each(pintaPanel);
+	    // paneles.each(pintaPanel);
+	    var botonView = new BotonView({el:  $("#listado ul"), collection: paneles });
 	}
 
-
+/*
 	function pintaPanel(data){
 	    var $div = $("<li>", {id: "ref_panel_"+data.cid});
 	    $div.html(data.get("rotulo") + " " + data.cid);
@@ -132,6 +133,7 @@ $(function(){
 	    });
 	    $("#listado ul").append($div);
 	}
+	*/
 
 //Funcion que escribe un mensaje en la consola
 
