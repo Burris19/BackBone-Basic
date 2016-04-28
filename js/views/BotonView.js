@@ -1,4 +1,7 @@
 var BotonView = Backbone.View.extend({
+	events:{
+		'click': '_click',
+	},
 	initialize: function () {
 		this.render();
 	},
@@ -9,5 +12,19 @@ var BotonView = Backbone.View.extend({
 			var html = template(model.toJSON());
 			el.append(html);
 		});
+	},
+	_click: function(e){
+		e.preventDefault();
+		var _id = $(e.target).data('id');
+		var item = this.collection.get(_id);
+		if(item != undefined){
+			$(".panel_seleccionado").toggleClass("panel_seleccionado");
+	        $(e.target).toggleClass("panel_seleccionado");
+	       	
+	        $.seleccionado = $(e.target);
+	        $('#contenedor').html('');
+	        var panelView = new PanelView({el: $('#contenedor'), model:item});
+
+		}
 	}
 });
