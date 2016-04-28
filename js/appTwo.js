@@ -48,6 +48,13 @@ $(function(){
 		sortByField: function(campo){
 			this.sort_key = campo;
 			this.sort();
+		},
+		findByRotulo: function(txt){
+			filterd = this.filter(function(item){
+				return item.get('rotulo').indexOf(txt) != -1;
+			});
+
+			return new PanelesCollection(filterd);
 		}
 
 	});
@@ -96,6 +103,12 @@ $(function(){
 	$('#sort_button').click(function(){
 		paneles.sortByField('rotulo');
 	});
+
+	$('#filter_button').click(function(){
+		// trace(paneles.where({'rotulo': $('#rot_filter').val()}));
+		trace(paneles.findByRotulo($('#rot_filter').val()));
+	});
+
 
 });
 
