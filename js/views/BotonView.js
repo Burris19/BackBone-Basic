@@ -1,3 +1,4 @@
+var panelView
 var BotonView = Backbone.View.extend({
 	events:{
 		'click': '_click',
@@ -21,9 +22,13 @@ var BotonView = Backbone.View.extend({
 			$(".panel_seleccionado").toggleClass("panel_seleccionado");
 	        $(e.target).toggleClass("panel_seleccionado");
 	       	
+	        if(panelView != undefined){
+	        	panelView.undelegateEvents();
+	        }
+
 	        $.seleccionado = $(e.target);
 	        $('#contenedor').html('');
-	        var panelView = new PanelView({el: $('#contenedor'), model:item});
+	        panelView = new PanelView({el: $('#contenedor'), model:item});
 
 		}
 	}
