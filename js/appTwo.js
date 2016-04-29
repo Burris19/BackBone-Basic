@@ -7,6 +7,12 @@ $(function(){
 	miRouter = new Enrutador;
 	Backbone.history.start();
 
+
+
+	$('#enlace_help').click(function(){
+		miRouter.navigate('help', { trigger: true } );
+	});
+
 	// $("#create_button").click(function(){
 		// var panel1 = new Panel();
 		// var panel2 = new Panel();
@@ -44,39 +50,39 @@ $(function(){
 
 	// });
 
-	var PanelesCollection = Backbone.Collection.extend({
-		model: Panel,
-		sort_key: "cid",
-		comparator: function(item){
-			return item.get(this.sort_key);
-		},
-		sortByField: function(campo){
-			this.sort_key = campo;
-			this.sort();
-		},
-		findByRotulo: function(txt){
-			filterd = this.filter(function(item){
-				return item.get('rotulo').indexOf(txt) != -1;
-			});
+	// var PanelesCollection = Backbone.Collection.extend({
+	// 	model: Panel,
+	// 	sort_key: "cid",
+	// 	comparator: function(item){
+	// 		return item.get(this.sort_key);
+	// 	},
+	// 	sortByField: function(campo){
+	// 		this.sort_key = campo;
+	// 		this.sort();
+	// 	},
+	// 	findByRotulo: function(txt){
+	// 		filterd = this.filter(function(item){
+	// 			return item.get('rotulo').indexOf(txt) != -1;
+	// 		});
 
-			return new PanelesCollection(filterd);
-		}
+	// 		return new PanelesCollection(filterd);
+	// 	}
 
-	});
+	// });
 
-	paneles = new PanelesCollection([
-		{txt: "Este es el panel1", rotulo: "Panel1", id:"1"},
-		{txt: "Este es el panel2", rotulo: "Panel1", id:"2"},
-		{txt: "Este es el panel3", rotulo: "Panel1", id:"3"}
-	]);
+	// paneles = new PanelesCollection([
+	// 	{txt: "Este es el panel1", rotulo: "Panel1", id:"1"},
+	// 	{txt: "Este es el panel2", rotulo: "Panel1", id:"2"},
+	// 	{txt: "Este es el panel3", rotulo: "Panel1", id:"3"}
+	// ]);
 
-	onChangePanels(null, null);
+	// onChangePanels(null, null);
 
-	paneles.on({'add': onChangePanels, 'remove': onChangePanels, 'reset': onChangePanels, 'sort': onChangePanels});
+	// paneles.on({'add': onChangePanels, 'remove': onChangePanels, 'reset': onChangePanels, 'sort': onChangePanels});
 
-	trace(JSON.stringify(paneles.toJSON()));
+	// trace(JSON.stringify(paneles.toJSON()));
 
-	num_paneles = paneles.length + 1;
+	// num_paneles = paneles.length + 1;
 
 	$('#create_button').click(function(){
 		var item = {
