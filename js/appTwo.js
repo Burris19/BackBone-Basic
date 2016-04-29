@@ -1,7 +1,12 @@
 var paneles;
 var num_paneles;
+var miRouter;
 
 $(function(){
+
+	miRouter = new Enrutador;
+	Backbone.history.start();
+
 	// $("#create_button").click(function(){
 		// var panel1 = new Panel();
 		// var panel2 = new Panel();

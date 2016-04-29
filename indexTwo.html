@@ -26,19 +26,24 @@
 </head>
 <body>
 <div id="mini_form">
-    <input type="text" id="rot_init"/>
-    <button id="create_button">Añadir modelo</button>
-    <br><br>
-    <button id="reset_button">Borrar colección</button>
-    <button id="delete_button">Borrar modelo</button>
-    <input type="text" id="rot_del"/>
-    <button id="delete_button_ID">Borrar modelo por ID</button>
-    <br><br>
+    <!-- <input type="text" id="rot_init"/>
+        <button id="create_button">Añadir modelo</button>
+        <br><br>
+        <button id="reset_button">Borrar colección</button>
+        <button id="delete_button">Borrar modelo</button>
+        <input type="text" id="rot_del"/>
+        <button id="delete_button_ID">Borrar modelo por ID</button>
+        <br><br> 
+    -->
     <input type="text" id="rot_set"/>
     <button id="set_button">Aplicar valor</button>
-     <button id="sort_button">Ordena por rótulo</button>
-     <input type="text" id="rot_filter"/>
-    <button id="filter_button">Filter</button>
+
+    <div id="enlace_help"></div>
+    <!--
+         <button id="sort_button">Ordena por rótulo</button>
+         <input type="text" id="rot_filter"/>
+        <button id="filter_button">Filter</button>
+    -->
 </div>
 
     
@@ -52,6 +57,7 @@
 <div id="consola">
     
 </div>
+    <script type="text/javascript" src="js/router/Enrutador.js"></script>
     <script type="text/javascript" src="js/views/PanelView.js"></script>
     <script type="text/javascript" src="js/views/BotonView.js"></script>
     <script type="text/javascript" src="js/models/Panel.js"></script>
