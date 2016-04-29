@@ -1,7 +1,9 @@
 var Enrutador = Backbone.Router.extend({
 	routes: {
-		''			: 'index',
-		'help'		: 'ayuda'
+		''					: 'index',
+		'help'				: 'ayuda',
+		'panel/:id'			: 'muestraPanel',
+		'panel/:id/r:rotulo' : 'cambiaPaneles'
 	},
 	initialize: function() {
 		trace('rutas inicializadas');
@@ -38,5 +40,31 @@ var Enrutador = Backbone.Router.extend({
 			miRouter.navigate('', { trigger: true } );
 		});
 
+	},
+	muestraPanel: function(id){
+		var item = paneles.get(id);
+		if(item != undefined){
+		  	
+	        if(panelView != undefined){
+	        	panelView.undelegateEvents();
+	        }
+	    
+	        $('#contenedor').html('');
+	        panelView = new PanelView({el: $('#contenedor'), model:item});
+
+		}
+	},
+	cambiaPaneles: function(id, rotulo){
+		var item = paneles.get(id);
+		if(item != undefined){
+		 	item.set('rotulo', rotulo); 	
+	        if(panelView != undefined){
+	        	panelView.undelegateEvents();
+	        }
+	    
+	        $('#contenedor').html('');
+	        panelView = new PanelView({el: $('#contenedor'), model:item});
+
+		}
 	}
 });

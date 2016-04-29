@@ -84,6 +84,15 @@ $(function(){
 
 	// num_paneles = paneles.length + 1;
 
+
+	$('#set_button').click(function(){
+ 		var valor = $('#rot_set').val();
+ 		var id = $('.panel_seleccionado').data('id');
+ 		if (id != undefined) {
+ 			miRouter.navigate('panel/' + id + '/r' + valor, { trigger: true } );
+ 		}
+	});
+
 	$('#create_button').click(function(){
 		var item = {
 			txt: "Este es el panel " + num_paneles, rotulo: "Panel " + num_paneles, id:num_paneles
@@ -105,11 +114,11 @@ $(function(){
 		paneles.reset();
 	});
 
-	$('#set_button').click(function(){
-		var _id = $('.panel_seleccionado').data('id_panel');
-		var item = paneles.get(_id);
-		item.set('rotulo', $('#rot_set').val());		
-	});
+	// $('#set_button').click(function(){
+	// 	var _id = $('.panel_seleccionado').data('id_panel');
+	// 	var item = paneles.get(_id);
+	// 	item.set('rotulo', $('#rot_set').val());		
+	// });
 
 	$('#sort_button').click(function(){
 		paneles.sortByField('rotulo');
